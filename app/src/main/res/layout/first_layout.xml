@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:id="@+id/登录"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="tdd"
+        android:text="给薇薇投票"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/输入"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EditText"
+        android:onClick="tdds"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/显示"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_weight="0.32"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/跳转"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转"
+        android:visibility="gone"/>
+
+</LinearLayout>

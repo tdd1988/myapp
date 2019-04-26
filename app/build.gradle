@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        qianming {
+            storeFile file('/Users/tdd/Downloads/MyApplication2/app/calms.jks')
+            keyAlias 'calms'
+            keyPassword 'tdd123'
+            storePassword 'tdd123'
+        }
+        qianmings {
+            keyAlias 'calm'
+            keyPassword 'calm123'
+            storeFile file('/Users/tdd/Downloads/MyApplication2/app/calm.keystore')
+            storePassword 'calm123'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.shishike.calm"
+        //testApplicationId 'com.shishike.calm'
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner  'com.zutubi.android.junitreport.JUnitReportTestRunner'
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.qianming
+        }
+        debug {
+            signingConfig signingConfigs.qianmings
+        }
+    }
+}
+
+task copyTask(type: Copy) {
+    String rootdir = rootDir.toString()
+    String apkEnviroment = 'CI' //CI/Debug/Release/Destribution
+    if (apkEnviroment == 'CI') {
+        from rootdir+'/apk/ciApk/'
+        include '*.apk'
+        into 'build/outputs/apk/'//将apk复制到指定目录
+    }
+    else if (apkEnviroment == 'Debug') {
+        from rootdir+'/apk/debugApk/'
+        include '*.apk'
+        into 'build/outputs/apk/'//将apk复制到指定目录
+    }
+    else if (apkEnviroment == 'Release') {
+        from rootdir + '/apk/releaseApk/'
+        include '*.apk'
+        into 'build/outputs/apk/'//将apk复制到指定目录
+    }
+    else if (apkEnviroment == 'Destribution') {
+        from rootdir + '/apk/destributionApk/'
+        include '*.apk'
+        into 'build/outputs/apk/'//将apk复制到指定目录
+    }
+    rename { String fileName -> //在复制时重命名文件
+        fileName = "app-debug.apk" // 重命名
+    }
+}
+
+dependencies {
+    androidTestCompile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'junit:junit:4.12'
+    androidTestCompile project(':mylibrary')
+    androidTestCompile files('libs/robotium-solo-5.6.3.3.jar')
+    androidTestCompile files('libs/android-junit-report-1.5.8.jar')
+    compile project(':anzhuo')
+}
