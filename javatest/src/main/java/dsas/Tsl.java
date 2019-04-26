@@ -26,7 +26,9 @@ public class Tsl {
         System.out.println(new String(ch,0,ch.length));
         inr.close();
         System.out.println("我是dev创建的");
-
+        System.out.println("我是dev创建的1");
+        System.out.println("我是dev创建的2");
+        System.out.println("我是dev创建的3");
         }
 
 
