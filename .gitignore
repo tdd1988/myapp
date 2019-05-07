@@ -6,3 +6,6 @@
 /build
 /captures
 .externalNativeBuild
+.idea/vcs.xml
+ modified:   .idea/misc.xml
+
