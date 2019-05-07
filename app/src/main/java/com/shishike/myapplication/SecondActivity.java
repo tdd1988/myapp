@@ -37,7 +37,7 @@ public class SecondActivity extends Activity {
         final ProgressDialog dialog = new ProgressDialog(this);
 
         dialog.setTitle("提示信息");
-        dialog.setMessage("正在下载，请稍后...");
+        dialog.setMessage("正在下载222，请稍后...");
         dialog.setCancelable(false);
         Button button=(Button)findViewById(R.id.下载);
 
