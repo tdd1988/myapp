@@ -1,6 +1,7 @@
 package com.shishike.mylibrary;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -37,6 +38,8 @@ public class TestReader extends ActivityInstrumentationTestCase2 {
     @Override
     public void setUp() throws Exception {
         solo = new Solo(getInstrumentation(), launchActivityClass);
+        //Intent is=new Intent(getInstrumentation().,launchActivityClass);
+
         //getActivity();
         caseClassName = getClass().getSimpleName()+"#"+getName();
         casePackage = getClass().getPackage().getName().replace("com.shishike.calm.testcases.", "")+".";

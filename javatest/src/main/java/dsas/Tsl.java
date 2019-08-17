@@ -1,6 +1,7 @@
 package dsas;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -11,7 +12,16 @@ import java.io.InputStreamReader;
 
 public class Tsl {
     public static void main(String[] args) throws IOException{
-        new Tsl().tes();
+        //new Tsl().tes();
+        Process ps= Runtime.getRuntime().exec("adb devices");
+        StringBuffer sb=new StringBuffer();
+        BufferedReader bf=new BufferedReader(new InputStreamReader(ps.getInputStream()));
+        String a;
+
+        while((a=bf.readLine())!=null){
+            sb.append(a);
+        }
+        System.out.println(sb);
 
     }
 
