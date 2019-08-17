@@ -2,6 +2,8 @@ package com.shishike.myapplication;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Instrumentation;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,12 +32,12 @@ public class FirstActivity extends Activity {
     private static final int MSG_SUCCESS = 0;
     private static final int MSG_FAILURE = 1;
     String a;
-    int b=0;
+    int b=1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
-
+        /**
         final Handler mainHandler=new Handler(){
 
             public void handleMessage (Message msg) {
@@ -53,6 +55,9 @@ public class FirstActivity extends Activity {
                 }
             }
         };
+        */
+        this.getWindow().getDecorView();
+
         Button button = (Button) findViewById(R.id.登录);
 
         Button button2 = (Button) findViewById(R.id.跳转);
@@ -60,11 +65,12 @@ public class FirstActivity extends Activity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(FirstActivity.this, SecondActivity.class);
+                Intent intent=new Intent(FirstActivity.this, ThridActivity.class);
                 startActivity(intent);
             }
         });
 
+        /**
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +78,8 @@ public class FirstActivity extends Activity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        StringRequest str = new StringRequest(Request.Method.GET, "https://www.tmjl.ai/api/marketing/sichuan_voice_vote/vote?optionCodes=35",
+                        StringRequest str = new StringRequest(Request.Method.GET, "https://www.tmjl.ai/api/marketing/" +
+                                "sichuan_voice_vote/vote?optionCodes=35",
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
@@ -147,6 +154,8 @@ public class FirstActivity extends Activity {
         alterDiaglog.show();
 
     }
+         */
+}
 }
 
 
