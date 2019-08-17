@@ -18,7 +18,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "28.0.3"
     defaultConfig {
-        applicationId "com.shishike.calm"
+        applicationId "com.shishike.calmss"
         //testApplicationId 'com.shishike.calm'
         minSdkVersion 19
         targetSdkVersion 23
@@ -38,6 +38,13 @@ android {
             signingConfig signingConfigs.qianmings
         }
     }
+
+    lintOptions {
+        ignoreWarnings false
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
 }
 
 task copyTask(type: Copy) {

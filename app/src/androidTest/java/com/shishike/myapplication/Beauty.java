@@ -4,6 +4,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
 
 import com.robotium.solo.Solo;
+import com.robotium.solo.WebElement;
 
 
 /**
@@ -47,14 +48,18 @@ public class Beauty extends ActivityInstrumentationTestCase2 {
         solo.finishOpenedActivities();
     }
 
-    public void test_setMess(){
+    public void test_setMess(WebElement webElement){
         Log.v("tiandongdong","哈哈哈哈");
         solo.sleep(3000);
+         //webElement;
+        solo.getCurrentWebElements();
+
     }
 
     public void test_setMess2(){
         Log.v("tiandongdong","哈哈哈哈");
         solo.sleep(3000);
+
     }
 
 
