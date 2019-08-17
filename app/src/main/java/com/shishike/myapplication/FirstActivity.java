@@ -32,7 +32,7 @@ public class FirstActivity extends Activity {
     private static final int MSG_SUCCESS = 0;
     private static final int MSG_FAILURE = 1;
     String a;
-    int b=3;
+    int b=1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
